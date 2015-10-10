@@ -10,9 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var startTimerBUtton: UIButton!
+    
+    //var countdownTimer : NSTimer = NSTimer.initialize();
+    var timeValue = 10.00;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        timerLabel.text = "10:00"
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +28,12 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    @IBAction func startTimer(sender: AnyObject) {
+        var countDownTimer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("countDownTimerLabel"), userInfo: nil, repeats: true)
+    }
+    
+    func countDownTimerLabel(){
+        println("カウントダウン！！")
+    }
 }
 
