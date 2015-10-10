@@ -48,20 +48,33 @@ class ViewController: UIViewController {
                 break
             case 1:
                 println()
-                self.view.backgroundColor = UIColor(red: 0.16, green: 5, blue: 0.73, alpha: 1)
+                self.view.backgroundColor = UIColor(red: 0.16, green: 0.5, blue: 0.73, alpha: 1)
+                //rgb(41, 128, 185)
                 break
             case 0:
                 println()
                 self.view.backgroundColor = UIColor(red: 0.75, green: 0.22, blue: 0.17, alpha: 1)
                 
                 countDownTimer.invalidate()
+                self.appearAlertViewController()
                 break
             
             default :
                 break
         }
+    }
+    
+    func appearAlertViewController(){
+        //UIAlertControllerを表示
         
+        var alert:UIAlertController = UIAlertController(title: "カウント終了", message: "人生終了", preferredStyle: UIAlertControllerStyle.Alert) //UIAlertControllerを作成。(アラートのスタイルやタイトル、メッセージを指定)
         
+        //UIAlertControllerにアクションシート(アラートのボタン)を追加。handler以下にボタン押したときに発動する処理を記述
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: {
+            (action:UIAlertAction!) -> Void in println("終了！！！！")
+        }));
+        
+        presentViewController(alert, animated: true, completion: nil) //UIAlertControllerを表示
     }
 }
 
